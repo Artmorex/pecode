@@ -1,0 +1,9 @@
+{
+    "username": "Pecode_user",
+    "password": "supersecure",
+    "endpoint": "https://www.pecodesoftware.com",
+    "successfulMessage": "Successful Login.",
+    "noAccountMessage": "No account found with that username.",
+    "noUserMessage": "Please enter username.",
+    "noPasswordMessage": "Please enter your password."
+}
