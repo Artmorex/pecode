@@ -1,0 +1,188 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-05-31T20:43:13.208Z",
+    "end": "2024-05-31T20:43:22.296Z",
+    "duration": 9088,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "98b1e062-bb65-45c6-816d-9876a04387ee",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec.cy.js",
+      "file": "cypress\\e2e\\spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+          "title": "Test suite: Pecode Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check that DOM elements presented",
+              "fullTitle": "Test suite: Pecode Login Check that DOM elements presented",
+              "timedOut": null,
+              "duration": 1217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/qa-portal/greet.php');\ncy.get('center').should('exist');\ncy.get('.form-group').should('exist');\ncy.get('input[name=\"username\"]').should('exist');\ncy.get('input[name=\"password\"]').should('exist');\ncy.get('.btn.btn-success').contains('Login').should('exist');",
+              "err": {},
+              "uuid": "1b378d92-27db-4dfe-ad71-797e853419cb",
+              "parentUUID": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should fail: Pecode Login Page Test with commands",
+              "fullTitle": "Test suite: Pecode Login Should fail: Pecode Login Page Test with commands",
+              "timedOut": null,
+              "duration": 5571,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/qa-portal/greet.php');\ncy.login('username', 'password');\ncy.screenshot(\"Login_fail\");\ncy.getErrorMessage().should('eq', 'Successful login');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'No account found with that username.' to equal 'Successful login'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'No account found with that username.' to equal 'Successful login'\n    at Context.eval (webpack://pecode/./cypress/e2e/spec.cy.js:28:25)",
+                "diff": "- 'No account found with that username.'\n+ 'Successful login'\n"
+              },
+              "uuid": "f9573b2c-ba81-4b2b-bfc4-daa878e1613f",
+              "parentUUID": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Pecode Login Page. Test with Page-Object pattern",
+              "fullTitle": "Test suite: Pecode Login Pecode Login Page. Test with Page-Object pattern",
+              "timedOut": null,
+              "duration": 809,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const login = new _LoginPage.default(); //7. Use a page-object pattern\nlogin.visit(); //Same as cy.visit(`${Cypress.env(\"endpoint\")}/qa-portal/greet.php`)\nlogin.fillUser(Cypress.env('username'));\nlogin.fillPassword(Cypress.env('password'));\nlogin.submit();\nlogin.checkErrorMessageBlock('No account found with that username.');",
+              "err": {},
+              "uuid": "aefd08d4-83e6-45a5-bc89-c2553e92c27c",
+              "parentUUID": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Pecode Login Page. Test with commands: no username",
+              "fullTitle": "Test suite: Pecode Login Pecode Login Page. Test with commands: no username",
+              "timedOut": null,
+              "duration": 679,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/qa-portal/greet.php'); //7. Use support actions\ncy.setPassword('password'); //verify we got \"Please enter username.\" message\ncy.clickLogin();\ncy.getErrorMessageForUser().should('eq', 'Please enter username.');",
+              "err": {},
+              "uuid": "82d049cf-5fee-4262-9371-3829bab1faa8",
+              "parentUUID": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Pecode Login Page. Test with commands: no password",
+              "fullTitle": "Test suite: Pecode Login Pecode Login Page. Test with commands: no password",
+              "timedOut": null,
+              "duration": 573,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/qa-portal/greet.php'); //7. Use support actions\ncy.setUser('username'); //verify we got \"Please enter password.\" message\ncy.clickLogin();\ncy.getErrorMessageForPassword().should('eq', 'Please enter your password.');",
+              "err": {},
+              "uuid": "70d40ab1-ccda-4997-b793-5f34175016d9",
+              "parentUUID": "7e4a3d4b-7213-46ec-99aa-0b2de0103e06",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1b378d92-27db-4dfe-ad71-797e853419cb",
+            "aefd08d4-83e6-45a5-bc89-c2553e92c27c",
+            "82d049cf-5fee-4262-9371-3829bab1faa8",
+            "70d40ab1-ccda-4997-b793-5f34175016d9"
+          ],
+          "failures": [
+            "f9573b2c-ba81-4b2b-bfc4-daa878e1613f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8849,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "html": true,
+        "reportsDir": "reports",
+        "reportFilename": "report",
+        "overwrite": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
